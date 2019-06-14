@@ -20,9 +20,9 @@
                 margin: 0;
             }
 
-            .full-height {
+            /* .full-height {
                 height: 100vh;
-            }
+            } */
 
             .flex-center {
                 align-items: center;
@@ -83,7 +83,8 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
+                @yield('main')
+                @section('menu')
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -93,6 +94,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+              @show
             </div>
         </div>
     </body>

@@ -53,3 +53,12 @@ Route::get('/pasandoDatos', function () {  //Paso datos a una vista.
     // return view('welcome')->with('peliculas', $peliculas); //with() toma al primer parámetro como el nombre de la variable que envía a la vista. El segundo parámetro son los datos que colocará dentro de la variable. Usando with() se puede cambiar el nombre de la variable que se envía a la vista.
 
 });
+
+Route::get('/peliculas', 'MovieController@index');
+Route::get('/peliculasNew', 'MovieController@create');
+Route::get('/actores', 'ActorController@index');
+
+
+
+
+//

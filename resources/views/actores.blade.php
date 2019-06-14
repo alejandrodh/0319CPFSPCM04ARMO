@@ -1,11 +1,11 @@
 @extends('welcome')
 
 @section('main')
-    <h1>Lista de películas</h1>
+    <h1>Lista de actores</h1>
     <ul>
       {{-- @dd($peliculas) --}}
-      @foreach ($peliculas as $pelicula)
-        <li>{{$pelicula->title}} {{$pelicula->rating}}</li>
+      @foreach ($actores as $actor)
+        <li>{{$actor->first_name}}, {{$actor->last_name}}</li>
       @endforeach
     </ul>
 
