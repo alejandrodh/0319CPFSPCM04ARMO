@@ -54,9 +54,9 @@ Route::get('/pasandoDatos', function () {  //Paso datos a una vista.
 
 });
 
-Route::get('/peliculas', 'MovieController@index');
-Route::get('/peliculasNew', 'MovieController@create');
-Route::get('/actores', 'ActorController@index');
+Route::get('/movies', 'MovieController@index');
+Route::get('/addMovie', 'MovieController@create');
+Route::get('/actors', 'ActorController@index');
 
 
 
