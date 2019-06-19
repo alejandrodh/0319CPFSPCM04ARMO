@@ -14,7 +14,7 @@ class ActorController extends Controller
      */
     public function index()
     {
-        $actores = Actor::all();
+        $actores = Actor::paginate(5);
         return view("/actores", compact('actores'));
     }
 
@@ -82,5 +82,15 @@ class ActorController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search()
+    {
+      $param = $_GET['search'];
+      $actores = Actor::where('first_name', 'like', "%$param%" )->get(); //no olvidar get() para las consultas where;
+      //return view('actores', compact('actores'));
+
+      return view('actores')->with('actores', $actores);
+
     }
 }

@@ -5,7 +5,7 @@
     <ul>
       {{-- @dd($peliculas) --}}
       @foreach ($peliculas as $pelicula)
-        <li>{{$pelicula->title}} {{$pelicula->rating}}</li>
+        <li>Title:{{$pelicula->title}} | Rating: {{$pelicula->rating}}</li>
       @endforeach
     </ul>
 

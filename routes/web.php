@@ -56,7 +56,11 @@ Route::get('/pasandoDatos', function () {  //Paso datos a una vista.
 
 Route::get('/movies', 'MovieController@index');
 Route::get('/addMovie', 'MovieController@create');
+Route::post('/addMovie', 'MovieController@store');
 Route::get('/actors', 'ActorController@index');
+Route::get('/actors/search', 'ActorController@search');
+Route::get('/actors/{id}', 'ActorController@show');
+
 
 
 

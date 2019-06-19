@@ -22,7 +22,14 @@ class MovieController extends Controller
       //   "The Expendables",
       // ];
 
-      $peliculas = Movie::all();
+      // $peliculas = Movie::all(); //Todos los datos de la tabla.
+      // $peliculas = Movie::where('rating', '>', 4)
+      // ->orderBy('rating')
+      // ->get();
+
+      $peliculas = Movie::where('title', 'like', '%samente')
+      ->orderBy('rating')
+      ->get();
 
       $vac = compact('peliculas');
       return view('movies', $vac);
@@ -35,7 +42,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return "Formulario de Carga";
+        return view('addMovie');
     }
 
     /**
@@ -46,7 +53,33 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+          'title' => 'filled|string|max:50',
+          'rating'=> 'filled|integer',
+        ];
+        $messages = [
+          'filled' =>':attribute debe estar completo.',
+          'string' =>':attribute debe ser cadena de texto.',
+          'max' => ':attribute debe tener como máximo 50 caracteres',
+          'integer' => ':attribute debe ser numérico.'
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        $movie = new Movie; //crear instancia de la clase.
+        //Asignar datos al objeto.
+        $movie->title = $request->title;
+        $movie->rating = $request->rating;
+        $movie->awards = $request->awards;
+        $movie->length = $request->length;
+        $movie->release_date = $request->release_date;
+
+        //Guardar el objeto en db. Revisar que el modelo tenga $guarded o $fillable
+        $movie->save(); //save() también sirve para hacer actualización.
+
+        return redirect('/addMovie');
+
+        // dd($request, $movie);
     }
 
     /**
