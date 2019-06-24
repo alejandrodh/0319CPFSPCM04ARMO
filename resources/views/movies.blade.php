@@ -5,7 +5,10 @@
     <ul>
       {{-- @dd($peliculas) --}}
       @foreach ($peliculas as $pelicula)
-        <li>Title:{{$pelicula->title}} | Rating: {{$pelicula->rating}}</li>
+        {{-- @dd($pelicula->genre->name) --}}
+        @if($pelicula->genre)
+         <li>Title:{{$pelicula->title}} | Rating: {{$pelicula->rating}} | Género: {{$pelicula->genre->name}}</li> {{-- Los métodos de relaciones entre tablas se invocan como llamadas atributos --}}
+      @endif
       @endforeach
     </ul>
 

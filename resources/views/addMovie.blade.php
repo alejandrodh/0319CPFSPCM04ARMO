@@ -7,7 +7,7 @@
 
 </ul>
 
-<form id="agregarPelicula" name="/addMovie" method="post">
+<form id="agregarPelicula" name="/addMovie" method="post" enctype="multipart/form-data">
   @csrf
   {{-- {{csrf_field()}} // es obligatorio para los formularios --}}
     <div>
@@ -33,6 +33,11 @@
     <div>
         <label>Fecha de Estreno</label>
         <input type="date" name="release_date" value="">
+    </div>
+    <div>
+        <label>Imagen</label>
+        <input type="file" name="imagen" value="">
+        <small>{{ $errors->first('imagen') }}</small>
     </div>
     <input type="submit" name="submit"/>
 </form>

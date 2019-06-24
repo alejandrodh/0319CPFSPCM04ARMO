@@ -60,6 +60,7 @@ Route::post('/addMovie', 'MovieController@store');
 Route::get('/actors', 'ActorController@index');
 Route::get('/actors/search', 'ActorController@search');
 Route::get('/actors/{id}', 'ActorController@show');
+Route::get('/genres', 'GenreController@index');
 
 
 

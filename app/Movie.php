@@ -17,4 +17,8 @@ class Movie extends Model
 
     // public $fillable = []; //identifcar los campos que SI puedo asignar masivamente. Vacío impide todo.
 
+    public function genre(){
+      return $this->belongsTo('App\Genre', 'genre_id');
+    }
+
 }
